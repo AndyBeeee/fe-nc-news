@@ -1,6 +1,6 @@
 .App {
     background-color: #b5b6bf;
-    padding: 10px;
+    padding: 5px;
     color: #ffffff;
   }
 
@@ -17,8 +17,8 @@
   }
 
 .articleList {
-    background-color: #333465;
-    padding: 10px;
+  background-color: #b5b6bf;
+
   }
 
 .articleCard {

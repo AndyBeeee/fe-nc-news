@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import ArticleCard from './ArticleCard'
+import { getArticles } from './utils/api'
 
 function ArticleList() {
   const [articles, setArticles] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios.get('https://nc-news-42oi.onrender.com/api/articles')
-        .then((response) => {
-        setArticles(response.data.articles)
+    getArticles()
+        .then((articles) => {
+        setArticles(articles);
+        })
+        .then (() => {
+          setLoading(false)
         })
         .catch((error) => {
-        console.error('Error getting articles', error)
+        console.error('Error getting articles', error);
         })
     }, [])
 
-  return (
-    <div className="article-list">
+  return loading ? (
+    <h1> Loading Articles </h1>
+  ) : (
+    <div className="articleList">
         {articles.map((article) => (
         <ArticleCard key={article.title} article={article} />
         ))}
