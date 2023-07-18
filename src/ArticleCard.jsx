@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 function ArticleCard({ article }) {
   return (
     <div className="articleCard">
+        <Link to={`/articles/${article.article_id}`}>
         <img src={article.article_img_url} alt="Article" />
+        </Link>
         <div className="articleCardContent">
         <div className="articleCardRow1">
         <Link to={`/articles/${article.article_id}`}>

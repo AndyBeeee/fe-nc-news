@@ -39,14 +39,14 @@
     padding-right: 2.5em;
     margin-bottom: 0.4em; 
     display: flex;
-    flex-direction: row; /* Align flex items side by side */
-    align-items: center; /* Vertically center the flex items */
+    flex-direction: row; 
+    align-items: center; 
   }
 
 .articleCardContent {
     display: flex;
-    flex-direction: column; /* Stack the rows vertically */
-    margin-left: 1em; /* Add some margin to the left of the text */
+    flex-direction: column; 
+    margin-left: 1em; 
   }
 
 .articleCard h2 {
@@ -78,17 +78,19 @@
   }
 
 .articleCardRow2 p {
+  
     margin-right: 1.5em; 
     margin-top: 0em;
   }
 
 .articleCard img {
-    width: 9em; /* Adjust this value to change the size of the image */
+    width: 9em; 
     height: auto;
-    margin-right: .5em; /* Add some margin to the right of the image */
+    margin-right: .5em; 
   }
 
 .article {
+    line-height: 1em;
     padding-right: 0.5em;
     background-color: #333465;
     display: grid;
@@ -107,4 +109,48 @@
 .article img {
     width: 100%;
     height: auto;
+  }
+
+.commentsSection {
+    background-color: #c9cbd5; 
+
+  }
+
+.articleContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+.commentCard {
+    display: flex;
+    font-size: .9em;
+    background-color: #333465; 
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    margin-top: .5em;
+    justify-content: center;
+    align-items: center;
+  }
+
+.commentCardColumn1 {
+    padding-left: 1em;
+    line-height: .5em;
+    flex: 1;
+  }
+
+.commentCardColumn2 {
+    flex: 6;
+    line-height: 1em;
+    padding-left: 1em;
+  }
+
+.commentsTitle {
+    font-size: 1.3em;
+    color: #333465;
+    text-decoration: none;
+    margin-left: .2em; 
+    margin-top: 1em;
+    line-height: .2em;
   }
