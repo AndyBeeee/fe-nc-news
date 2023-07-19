@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 function ArticleCard({ article }) {
   return (
     <div className="articleCard">
         <Link to={`/articles/${article.article_id}`}>
-        <img src={article.article_img_url} alt="Article" />
+        <img src={article.article_img_url} alt={article.title} />
         </Link>
         <div className="articleCardContent">
         <div className="articleCardRow1">

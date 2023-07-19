@@ -37,7 +37,7 @@
     background-color: #333465;
     padding-left: 1.5em;
     padding-right: 2.5em;
-    margin-bottom: 0.4em; 
+    margin-bottom: 0.2em; 
     display: flex;
     flex-direction: row; 
     align-items: center; 
@@ -79,7 +79,7 @@
 
 .articleCardRow2 p {
   
-    margin-right: 1.5em; 
+    margin-right: 2em; 
     margin-top: 0em;
   }
 
@@ -89,37 +89,11 @@
     margin-right: .5em; 
   }
 
-.article {
-    line-height: 1em;
-    padding-right: 0.5em;
-    background-color: #333465;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-    color: #dbd9cd;
-  }
-
-.article div:first-child {
-    padding-left: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-.article img {
-    width: 100%;
-    height: auto;
-  }
 
 .commentsSection {
     background-color: #c9cbd5; 
-
   }
 
-.articleContainer {
-    display: flex;
-    flex-direction: column;
-  }
 
 .commentCard {
     display: flex;
@@ -153,4 +127,85 @@
     margin-left: .2em; 
     margin-top: 1em;
     line-height: .2em;
+  }
+
+
+  .articleContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .article {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.22em;
+    padding-right: 0.5em;
+    background-color: #333465;
+    color: #dbd9cd;
+  }
+  
+  .article img {
+    width: 100%;
+    height: auto;
+    padding-left: 1em;
+    padding-top: 1em;
+  }
+  
+  .articleLeft {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0em;
+  }
+  
+  .voteButtons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding-left: 1em;
+  }
+  
+  .voteButtons img {
+    object-fit: contain;
+    width: 27%;
+    height: 80%;
+    padding: 0.7em;
+  }
+  
+  .voteButtons p {
+    font-size: 4em;
+    text-align: center;
+  }
+  
+  .articleRight {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2em;
+    padding-right: 1em;
+  }
+  
+
+  @media (max-width: 768px) {
+    .article {
+      flex-direction: column;
+    }
+  
+    .articleRight {
+      padding-left: 0.5em;
+    }
+
+    .article img {
+
+      padding-left: 0.5em;
+      padding-top: 0.5em;
+    }
+    .articleCard {
+      flex-direction: column;
+  }
+  .articleCard img {
+    width: 17em; 
+    margin-top: 1em; 
+  }
   }
