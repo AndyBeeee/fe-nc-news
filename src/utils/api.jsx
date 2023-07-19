@@ -4,21 +4,29 @@ const api = 'https://nc-news-42oi.onrender.com/api'
 
 export const getArticles = () => {
     return axios.get(api + '/articles')
-    .then((response) => {
-    return response.data.articles;
+    .then((res) => {
+    return res.data.articles;
     })
 }
 
 export const getArticle = (article_id) => {
     return axios.get(api + `/articles/${article_id}`)
-    .then((response) => {
-    return response.data.article
+    .then((res) => {
+    return res.data.article
     })
 }
 
 export const getComments = (article_id) => {
     return axios.get(api + `/articles/${article_id}/comments`)
-    .then((response) => {
-    return response.data.comments;
+    .then((res) => {
+    return res.data.comments;
+    })
+}
+
+  
+  export const patchArticleVotes = (article_id, inc_votes) => {
+    return axios.patch(api + `/articles/${article_id}`, { inc_votes })
+    .then((res) => {
+    return res.data.article
     })
 }

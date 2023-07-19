@@ -1,8 +1,9 @@
+import logo from './assets/logo.png'
 
 function Header() {
   return (
     <header className="header">
-    <img src='src/assets/logo.png' alt="NC News Logo"/>
+    <img src={logo} alt="NC News Logo"/>
     </header>
   )
 }
