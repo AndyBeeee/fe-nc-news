@@ -1,29 +1,19 @@
 import  { patchArticleVotes } from './api'
 
-export const handleUpVote = (article_id, setArticle, setVoteStatus, setVoteMessage) => {
-    const voteStatus = localStorage.getItem(`article-${article_id}`)
-    if (voteStatus) {
-        setVoteMessage('You have already voted')
-    } else {
-        setVoteStatus('voted')
-        localStorage.setItem(`article-${article_id}`, 'upvoted')
-        patchArticleVotes(article_id, 1)
-        .then((updatedArticle) => {
-        setArticle(updatedArticle)
-        })
+  export const handleVote = (article, article_id, voteChange, setArticle, setVoteMessage, hasVoted, setHasVoted) => {
+    if (hasVoted) {
+        return
     }
-  }
-  
-  export const handleDownVote = (article_id, setArticle, setVoteStatus, setVoteMessage) => {
-    const voteStatus = localStorage.getItem(`article-${article_id}`)
-    if (voteStatus) {
-        setVoteMessage('You have already voted')
-    } else {
-        setVoteStatus('voted')
-        localStorage.setItem(`article-${article_id}`, 'downvoted')
-        patchArticleVotes(article_id, -1)
-        .then((updatedArticle) => {
-        setArticle(updatedArticle)
-        })
-    }
-  }
+
+    const updatedArticle = {...article, votes: Number(article.votes) + voteChange}
+    setArticle(updatedArticle)
+    patchArticleVotes(article_id, voteChange)
+    .then((updateFromServer) => {
+        setArticle(updateFromServer)
+        setHasVoted(true)
+    })
+    .catch((err) => {
+        setArticle(article)
+        setVoteMessage('Error processing your vote. Please try again.')
+    })
+}
