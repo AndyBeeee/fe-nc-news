@@ -30,3 +30,10 @@ export const getComments = (article_id) => {
     return res.data.article
     })
 }
+
+export const postComment = (article_id, username, body) => {
+    return axios.post(api + `/articles/${article_id}/comments`, {username, body})
+    .then((res) => {
+    return res.data.comment
+    })
+}
