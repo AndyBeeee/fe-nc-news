@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import ArticleCard from './ArticleCard'
 import { getArticles } from './utils/api'
 
-function ArticleList() {
+function ArticleList({ topic }) {
   const [articles, setArticles] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    getArticles()
+    getArticles(topic)
         .then((articles) => {
         setArticles(articles)
         setLoading(false)
@@ -17,7 +17,7 @@ function ArticleList() {
         setLoading(false)
         setError(true)
         })
-    }, [])
+    }, [topic])
 
     if (loading) {
       return <h1>Loading Articles</h1>

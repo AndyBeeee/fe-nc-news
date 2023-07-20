@@ -2,10 +2,14 @@ import axios from 'axios'
 
 const api = 'https://nc-news-42oi.onrender.com/api'
 
-export const getArticles = () => {
-    return axios.get(api + '/articles')
+export const getArticles = (topic) => {
+    let url = api + '/articles'
+    if (topic) {
+      url += `?topic=${topic}`
+    }
+    return axios.get(url)
     .then((res) => {
-    return res.data.articles;
+    return res.data.articles
     })
 }
 
@@ -22,7 +26,6 @@ export const getComments = (article_id) => {
     return res.data.comments;
     })
 }
-
   
   export const patchArticleVotes = (article_id, inc_votes) => {
     return axios.patch(api + `/articles/${article_id}`, { inc_votes })
@@ -37,3 +40,11 @@ export const postComment = (article_id, username, body) => {
     return res.data.comment
     })
 }
+
+export const getTopics = (topic) => {
+    return axios.get(api + '/topics')
+    .then((res) => {
+    return res.data.topics
+    })
+}
+  
