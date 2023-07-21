@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 function SortFunc({ setSort, setOrder }) {
 
     const [currentSort, setCurrentSort] = useState('created_at')
     const [currentOrder, setCurrentOrder] = useState('desc')
+    const [searchParams, setSearchParams] = useSearchParams()
   
     const ifClickSort = (sort) => {
         setSort(sort)
         setCurrentSort(sort)
+        setSearchParams({ sort: sort, order: currentOrder })
         }
   
     const ifClickOrder = (order) => {
         setOrder(order)
         setCurrentOrder(order)
+        setSearchParams({ sort: currentSort, order: order })
         }
 
     return (
