@@ -28,7 +28,7 @@ function Topics() {
         return (
         <div className='topicButtons'>
           {topics.map((topic) => (
-            <Link key={topic.slug} to={`/home/${topic.slug}`}>
+            <Link key={topic.slug} to={`/topic/${topic.slug}`}>
             <button>{topic.slug}</button>
             <p>{topic.description}</p>
             </Link>
