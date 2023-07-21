@@ -2,10 +2,29 @@ import axios from 'axios'
 
 const api = 'https://nc-news-42oi.onrender.com/api'
 
-export const getArticles = (topic) => {
+export const getArticles = (topic, sort, order) => {
     let url = api + '/articles'
+    let isQuery = false
+
     if (topic) {
-      url += `?topic=${topic}`
+        url += `?topic=${topic}`
+        isQuery = true
+    }
+    if (sort) {
+        if (isQuery) {
+            url += `&sort_by=${sort}`
+        } else {
+            url += `?sort_by=${sort}`
+            isQuery = true
+            }
+    }
+    if (order) {
+        if (isQuery) {
+            url += `&order=${order}`
+        } else {
+            url += `?order=${order}`
+            isQuery = true
+            }
     }
     return axios.get(url)
     .then((res) => {
