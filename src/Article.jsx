@@ -21,7 +21,8 @@ function Article() {
   const [commentButtonClick, setCommentButtonClick] = useState(false)
   const [comments, setComments] = useState([])
   const [commentSubmitted, setCommentSubmitted] = useState(false)
-  
+  const [username, setUsername] = useState('cooljmessy')
+
   const handleCommentClick = () => {
       setCommentButtonClick(true)
       setCommentSubmitted(false)
@@ -81,14 +82,22 @@ function Article() {
         {commentSubmitted ? "POST SUCCESSFUL - POST ANOTHER COMMENT" : "POST YOUR OWN COMMENT"}
       </button>
       {commentButtonClick &&
-        <CommentForm article_id={article_id} setComments={setComments} setCommentSubmitted={setCommentSubmitted} setCommentButtonClick={setCommentButtonClick}/>
-      }
+      <CommentForm 
+        article_id={article_id} 
+        setComments={setComments} 
+        setCommentSubmitted={setCommentSubmitted} 
+        setCommentButtonClick={setCommentButtonClick}
+        currentUser={username}/>
+        }
       <div className="commentsTitle">
         <h2>COMMENTS</h2>
       </div>
       <div className="commentsSection">
-        <CommentList comments={comments} setComments={setComments}/>
-      </div>
+      <CommentList 
+      comments={comments} 
+      setComments={setComments} 
+      currentUser={username}/> 
+    </div>
     </div>
       )
     }

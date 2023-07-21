@@ -67,3 +67,6 @@ export const getTopics = (topic) => {
     })
 }
   
+export const deleteComment = (commentId) => {
+    return axios.delete(api + `/comments/${commentId}`)
+  }
