@@ -120,6 +120,10 @@
     padding-left: 1em;
   }
 
+.commentCard.deleted {
+    background-color: #a1a3b1;
+  }
+
 .commentsTitle {
     font-size: 1.3em;
     color: #333465;
@@ -131,6 +135,7 @@
 
 
   .articleContainer {
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
   }
@@ -305,6 +310,13 @@
     color: #c9cbd5;
   }
 
+  .deleteCommentBut {
+    background-color: #c9cbd5;
+    color: #333465;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+  }
 
   @media (max-width: 768px) {
     .article {

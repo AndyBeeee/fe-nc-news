@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { postComment } from './utils/api'
-const hardcodedUsername = 'cooljmessy'
 
 function CommentForm({ article_id, setComments, setCommentSubmitted, setCommentButtonClick }) {
-  const [username, setUsername] = useState(hardcodedUsername)
   const [body, setBody] = useState('')
   const [error, setError] = useState(null)
   const [commentLoading, setCommentLoading] = useState(false)

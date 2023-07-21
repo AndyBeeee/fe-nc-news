@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getComments } from './utils/api'
 import CommentCard from './CommentCard'
 
-function CommentList({ comments, setComments }) {
+function CommentList({ comments, setComments, currentUser }) {
   const { article_id } = useParams()
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function CommentList({ comments, setComments }) {
   if (comments.length > 0) {
     return (
       <div>
-        {comments.map((comment) => (<CommentCard key={comment.comment_id} comment={comment} />
+        {comments.map((comment) => (<CommentCard key={comment.comment_id} comment={comment} currentUser={currentUser} />
         ))}
       </div>
     )
